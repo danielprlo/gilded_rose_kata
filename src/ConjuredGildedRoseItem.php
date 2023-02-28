@@ -6,7 +6,6 @@ namespace GildedRose;
 
 class ConjuredGildedRoseItem extends AbstractGildedRoseItem
 {
-
     public function increaseQuality(): void
     {
     }
@@ -20,6 +19,6 @@ class ConjuredGildedRoseItem extends AbstractGildedRoseItem
 
     public function decreaseSellInDate(): void
     {
-        $this->sellIn -= 1;
+        --$this->sellIn;
     }
 }

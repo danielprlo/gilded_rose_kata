@@ -6,18 +6,17 @@ namespace GildedRose;
 
 class BackstagePassesGildedRoseItem extends AbstractGildedRoseItem
 {
-
     public function increaseQuality(): void
     {
         if ($this->sellIn <= 10) {
-            $this->quality += 1;
+            ++$this->quality;
         }
 
         if ($this->sellIn <= 5) {
-            $this->quality += 1;
+            ++$this->quality;
         }
 
-        $this->quality += 1;
+        ++$this->quality;
     }
 
     public function decreaseQuality(): void
@@ -27,6 +26,6 @@ class BackstagePassesGildedRoseItem extends AbstractGildedRoseItem
 
     public function decreaseSellInDate(): void
     {
-        $this->sellIn -= 1;
+        --$this->sellIn;
     }
 }

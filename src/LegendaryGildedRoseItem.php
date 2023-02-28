@@ -6,7 +6,6 @@ namespace GildedRose;
 
 class LegendaryGildedRoseItem extends AbstractGildedRoseItem
 {
-
     public function increaseQuality(): void
     {
     }

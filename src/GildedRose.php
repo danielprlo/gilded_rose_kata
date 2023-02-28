@@ -6,9 +6,11 @@ namespace GildedRose;
 
 final class GildedRose
 {
-    CONST QUALITY_DEFAULT_MAX = 50;
-    CONST QUALITY_MIN_ACCEPTABLE = 0;
-    CONST PASSED_SELLING_POINT_DATE = 0;
+    public const QUALITY_DEFAULT_MAX = 50;
+
+    public const QUALITY_MIN_ACCEPTABLE = 0;
+
+    public const PASSED_SELLING_POINT_DATE = 0;
 
     /**
      * @param Item[] $items
@@ -36,13 +38,14 @@ final class GildedRose
             $item->sellIn = $gildedRoseItem->getSellIn();
         }
     }
+
     private function updateProductQualityPassedSellingPoint(InterfaceGildedRoseItem $gildedRoseItem): void
     {
         if (is_a($gildedRoseItem, AgingGildedRoseItem::class)) {
-            if (!$this->isItemMaxQuality($gildedRoseItem->getQuality())) {
+            if (! $this->isItemMaxQuality($gildedRoseItem->getQuality())) {
                 $gildedRoseItem->increaseQuality();
             }
-        } else if (is_a($gildedRoseItem, BackstagePassesGildedRoseItem::class) ||
+        } elseif (is_a($gildedRoseItem, BackstagePassesGildedRoseItem::class) ||
             is_a($gildedRoseItem, ConjuredGildedRoseItem::class)) {
             $gildedRoseItem->decreaseQuality();
         } else {
@@ -62,7 +65,7 @@ final class GildedRose
                 $gildedRoseItem->decreaseQuality();
             }
         } else {
-            if (!$this->isItemMaxQuality($gildedRoseItem->getQuality())) {
+            if (! $this->isItemMaxQuality($gildedRoseItem->getQuality())) {
                 $gildedRoseItem->increaseQuality();
             }
         }

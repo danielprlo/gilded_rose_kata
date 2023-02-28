@@ -13,6 +13,11 @@ abstract class AbstractGildedRoseItem implements \Stringable, InterfaceGildedRos
     ) {
     }
 
+    public function __toString(): string
+    {
+        return (string) "{$this->name}, {$this->sellIn}, {$this->quality}";
+    }
+
     public function getName(): string
     {
         return $this->name;
@@ -26,10 +31,5 @@ abstract class AbstractGildedRoseItem implements \Stringable, InterfaceGildedRos
     public function getSellIn(): int
     {
         return $this->sellIn;
-    }
-
-    public function __toString(): string
-    {
-        return (string) "{$this->name}, {$this->sellIn}, {$this->quality}";
     }
 }
